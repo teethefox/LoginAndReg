@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>   
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    <form action="/register" method="post"> {% csrf_token %}
+    <label>First Name :</label><p> </p><input type="text" name="firstname"><br><br>
+    <label>Last Name:</label><p> </p><input type="text" name="lastname"><br><br>
+    <label>Email:</label><p> </p><input type="email" name="email"><br><br>
+    <label>Password:</label><p> </p><input type="password" name="password"><br><br>
+    <label>Confirm Password:</label><p> </p><input type="password" name="confirmpassword"><br><br>
+    <input type="submit" name="create" value="Create Account"><br><br>
+
+</form>
+<form action="/login" method="post"> {% csrf_token %}
+    <label>Email:</label><p> </p><input type="text" name="email"><br><br>
+    <label>Password:</label><p> </p><input type="password" name="password"><br><br>
+    <input type="submit" name="create" value="Login"><br><br>
+
+</form>
+
+
+    
+</body>
+</html>
