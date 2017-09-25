@@ -31,7 +31,7 @@ class UserManager(models.Manager):
                 if not field in errors and len(value) < 8:
                     errors[field] = "Password must be contain more than 8 characters"
             if field == "confirmpassword":
-                if not field in errors and "confimrmpassword" is not "password":
+                if not field in errors and post_data['confirmpassword'] != post_data['password']:
                     errors[field] = "Passwords do not match"
             
         # check email field for valid email
